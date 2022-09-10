@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template id="lims_pos.pos_asset_lims" inherit_id="point_of_sale.assets">
+		<xpath expr="." position="inside">
+			<script type="text/javascript" src="/lims_pos/static/src/js/js.js"/>
+
+		</xpath>
+	</template>
+</odoo>

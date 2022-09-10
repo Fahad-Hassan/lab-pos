@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+    <record id="receiving_samples_action" model="ir.actions.act_window">
+        <field name="name">Registration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">lims.sample.main</field>
+        <field name="view_mode">tree,form,kanban</field>
+       <!--  <field name="search_view_id" ref="stock_product_search_form_view"/> -->
+    </record>
+
+    <record id="customers_action" model="ir.actions.act_window">
+        <field name="name">Customers</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+       <!--  <field name="search_view_id" ref="stock_product_search_form_view"/> -->
+    </record>
+
+    <record id="analysis_action" model="ir.actions.act_window">
+        <field name="name">Analysis</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">lims.analysis</field>
+        <field name="view_mode">tree,form,search,kanban,pivot,graph</field>
+        <field name="search_view_id" ref="lims.lims_analysis_search"/>
+        <field name="context">{'search_default_my_analysis': 1 }</field>
+    </record>
+
+    <record id="lims_department_action" model="ir.actions.act_window">
+        <field name="name">Departments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">lims.department</field>
+        <field name="view_mode">tree,form,kanban</field>
+       <!--  <field name="search_view_id" ref="stock_product_search_form_view"/> -->
+    </record>
+
+    <record id="lims_method_action" model="ir.actions.act_window">
+        <field name="name">Methods</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">lims.method</field>
+        <field name="view_mode">tree,form,kanban</field>
+       <!--  <field name="search_view_id" ref="stock_product_search_form_view"/> -->
+    </record>
+
+    <record id="lims_translate_template_action" model="ir.actions.act_window">
+        <field name="name">Translate Template</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">lims.translate.titles</field>
+        <field name="view_mode">tree,form,kanban</field>
+       <!--  <field name="search_view_id" ref="stock_product_search_form_view"/> -->
+    </record>
+
+
+    <record id="lims_result_state_action" model="ir.actions.act_window">
+        <field name="name">Result ranges</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">lims.result.state</field>
+        <field name="view_mode">tree,form,kanban</field>
+       <!--  <field name="search_view_id" ref="stock_product_search_form_view"/> -->
+    </record>
+
+    <record id="lims_results_action" model="ir.actions.act_window">
+        <field name="name">Results</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">lims.result</field>
+        <field name="view_mode">tree,form,kanban</field>
+       <!--  <field name="search_view_id" ref="stock_product_search_form_view"/> -->
+    </record>
+
+        <record id="lims_parameters_action" model="ir.actions.act_window">
+            <field name="name">Parameter Tests</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="context">{'default_isParameter': True,'default_sale_ok': True, 'default_purchase_ok':False,
+                                   'default_type':'service'}</field>
+            <field name="domain">[('isParameter','=','True'),('sale_ok','=','True'),('type','=','service')]</field>
+            <!-- <field name="search_view_id" ref="view_sales_order_filter"/> -->
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                No parameters found
+              </p><p>
+                
+              </p>
+            </field>
+        </record>
+
+        <record id="lims_pack_action" model="ir.actions.act_window">
+            <field name="name">Pack of Tests</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="context">{'default_isPack': True,'default_sale_ok': True, 'default_purchase_ok':False,
+                                   'default_type':'service'}</field>
+            <field name="domain">[('isPack','=','True'),('sale_ok','=','True'),('type','=','service')]</field>
+            <!-- <field name="search_view_id" ref="view_sales_order_filter"/> -->
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                No packs found
+              </p><p>
+                
+              </p>
+            </field>
+        </record>
+
+
+        <record id="sample_type_action" model="ir.actions.act_window">
+            <field name="name">Sample Types</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="context">{'default_isSample': True,'default_sale_ok': False, 
+                                   'default_purchase_ok':False}</field>
+            <field name="domain">[('isSample','=','True')]</field>
+            <!-- <field name="search_view_id" ref="view_sales_order_filter"/> -->
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                No Sample type found
+              </p><p>
+                
+              </p>
+            </field>
+        </record>
+
+    <menuitem id="menu_lims_root" name="LIMS" sequence="1" web_icon="lims,static/description/icon.png"/>
+
+
+    <menuitem id="menu_lims_main" name="Data Entry" parent="menu_lims_root" sequence="1"/>
+    <menuitem id="menu_sampling" name="Registration" action="receiving_samples_action"
+        parent="menu_lims_main" sequence="2"/>
+
+    <menuitem id="menu_customers" name="Customers" action="customers_action"
+        parent="menu_lims_main" sequence="1"/>
+
+    <menuitem id="menu_lims_analysis_parent" name="Analysis" parent="menu_lims_root" sequence="2"/>
+    <menuitem id="menu_analysis" name="Analysis" action="analysis_action"
+        parent="menu_lims_analysis_parent" sequence="1"/>
+
+
+    <menuitem id="menu_lims_config" name="Master data" parent="menu_lims_root" sequence="3"/>
+
+    <menuitem id="menu_lims_department" name="Departments" action="lims_department_action"
+        parent="menu_lims_config" sequence="1"/>
+    <menuitem id="menu_lims_tests" name="Parameters/Tests" action="lims_parameters_action"
+        parent="menu_lims_config" sequence="2"/>
+    <menuitem id="menu_lims_pack" name="Pack of Tests" action="lims_pack_action"
+        parent="menu_lims_config" sequence="3"/>
+    <menuitem id="menu_lims_methods" name="Methods" action="lims_method_action"
+        parent="menu_lims_config" sequence="4"/>
+
+    <menuitem id="menu_lims_config_2" name="Configurations" parent="menu_lims_root" sequence="3"/>
+
+
+    <menuitem id="menu_lims_translate_titles" name="Translate Template" action="lims_translate_template_action"
+        parent="menu_lims_config_2" sequence="5"/>
+
+    <menuitem id="menu_sample_type" name="Sample types" action="sample_type_action"
+        parent="menu_lims_config_2" sequence="1"/>
+    <menuitem id="menu_result_state" name="Result ranges" action="lims_result_state_action"
+        parent="menu_lims_config_2" sequence="2"/>
+    <menuitem id="menu_result" name="Result types" action="lims_results_action"
+        parent="menu_lims_config_2" sequence="3"/>
+</data></odoo>
