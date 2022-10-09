@@ -16,7 +16,10 @@ jobs:
 #         uses: SamKirkland/FTP-Deploy-Action@4.3.2
         uses: actions/checkout@v3
         with:
-          server: ftp://54.243.9.150
-          username: fahad
-          password: ${{ secrets.ftp_password }}
+          server: 54.243.9.150
+          username: ubuntu
+          password: ${{ secrets.SSH_PRIVATE_KEY }}
           protocol: ftp
+          local_path: ./* # default is ./*
+          # files will copy to under remote_path
+          remote_path: /home/ubuntu/lab-pos
