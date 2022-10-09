@@ -29,4 +29,4 @@ jobs:
           port: 22
           local_path: ./* # default is ./*
           # files will copy to under remote_path
-          remote_path: /home/ubuntu/lab-pos
+          remote_path: /home/ubuntu/lab-pos/
