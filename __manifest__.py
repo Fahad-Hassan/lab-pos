@@ -5,7 +5,7 @@
             From the registration of patients and their samples to 
             the sending of the analysis report.
                 """,
-    'description': """Management of a medical laboratory """,
+    'description': """Management of adfdfdf medical laboratory """,
     'version': '14.0.1.0',
     'sequence':15,
     'website': "",
