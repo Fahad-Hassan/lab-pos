@@ -23,9 +23,9 @@ jobs:
       - name: SFTP Deploy
         uses: appleboy/ssh-action@master
         with:
-          server: 193.123.81.218
+          host: 193.123.81.218
           username: ubuntu
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           local_path: ./* # default is ./*
           # files will copy to under remote_path
