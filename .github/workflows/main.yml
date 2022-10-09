@@ -25,7 +25,7 @@ jobs:
         with:
           server: 193.123.81.218
           username: ubuntu
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           local_path: ./* # default is ./*
           # files will copy to under remote_path
