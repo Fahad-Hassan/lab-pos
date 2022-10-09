@@ -5,7 +5,7 @@
             From the registration of patients and their samples to 
             the sending of the analysis report.
                 """,
-    'description': """Manarerergement of adfdfdf medical laboratory """,
+    'description': """Manarerergement ofjbjb adfdfdf medical laboratory """,
     'version': '14.0.1.0',
     'sequence':15,
     'website': "",
