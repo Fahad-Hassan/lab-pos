@@ -27,7 +27,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          script:
+          script: |
             cd lab-pos
             git pull origin main
             git status
