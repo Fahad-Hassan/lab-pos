@@ -27,6 +27,11 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
+          script: |
+            cd lab-pos
+            git pull origin main
+            git status
+            echo pwd
           local_path: ./* # default is ./*
           # files will copy to under remote_path
           remote_path: /home/ubuntu/lab-pos/
